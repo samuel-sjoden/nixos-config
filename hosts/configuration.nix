@@ -35,9 +35,11 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
+  services.displayManager.gdm.enable = false;
+  # Enable LightDM for login management
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+  # services.xserver.windowManager.i3.enable = true;
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
