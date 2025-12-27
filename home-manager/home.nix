@@ -4,6 +4,14 @@
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
 
+  xfconf.settings = {
+    xfce4-keyboard-shortcuts = {
+      "commands/custom/<Super>a" = "alacritty";
+      "xfwm4/custom/<Super>Up" = "maximize_window_key"; 
+    };
+  };
+
+
   home.packages = with pkgs; [
     neofetch
     ripgrep
@@ -71,6 +79,8 @@
 	lw = "librewolf";
     };
   };
+
+  programs.defaultBrowser = "librewolf";
   
   home.stateVersion = "25.05";
 
