@@ -21,18 +21,18 @@ vim.o.mouse = 'a'
 local set = vim.keymap.set
 
 -- Paste from clipboard
-set("n", "<leader>y", "\"+y")
-set("v", "<leader>y", "\"+y")
-set("n", "<leader>Y", "\"+Y")
+set("n", "<leader>y", "\"+y", {desc = 'Copy to Clipboard'})
+set("v", "<leader>y", "\"+y", {desc = 'Copy to Clipboard'})
+set("n", "<leader>Y", "\"+Y", {desc = 'Copy to Clipboard'})
 
 -- Acess file explorer (netrw)
-set("n", "<leader>pv", ":Ex<CR>")
+set("n", "<leader>pv", ":Ex<CR>", {desc = 'Open Netrw'})
 
 -- Search and replace
-set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = 'Search and replace string under cursor'})
 
 -- Make the current file executable
-set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
+set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true, desc = 'Make Current File Executable'})
 
 -- Telescope remaps
 local builtin = require('telescope.builtin')

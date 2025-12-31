@@ -34,13 +34,22 @@
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-    # telescope lsp which-key
+    # lsp autopairs
+
+    nvim-web-devicons
 
     # telescope setup
     plenary-nvim
-    nvim-web-devicons
+    {
+      plugin = telescope-nvim;
+      config = toLuaFile ./nvim/plugin/telescope.lua;
+    }
+	
     telescope-fzf-native-nvim
-    telescope-nvim
+	# which-key setup
+	which-key-nvim
+
+	# autopairs setup
 
     ];
 
