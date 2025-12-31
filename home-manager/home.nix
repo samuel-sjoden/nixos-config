@@ -21,7 +21,7 @@
     librewolf
     # Alternative to find
     fd
-
+    clang-tools
   ];
 
   programs.neovim = 
@@ -67,7 +67,9 @@
      xclip
      wl-clipboard
 
+	 # External language servers
      pyright
+	 ltex-ls
     ];
   };
   
