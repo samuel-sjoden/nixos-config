@@ -78,6 +78,12 @@
     ];
   };
 
+  # Fonts
+  fonts.packages = with pkgs; [
+  nerd-fonts.fira-code
+  nerd-fonts.droid-sans-mono
+  ];
+
   # Install firefox.
   programs.firefox.enable = true;
 
