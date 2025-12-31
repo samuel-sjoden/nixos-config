@@ -18,8 +18,10 @@
     fzf
     tree
     btop
-
     librewolf
+    # Alternative to find
+    fd
+
   ];
 
   programs.neovim = 
@@ -29,40 +31,20 @@
   in
   {
     enable = true;
+    defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-      {
-	plugin = nvim-lspconfig;
-	config = toLuaFile ./nvim/plugin/lsp.lua;
-      }
-      {
-	plugin = nvim-treesitter.withAllGrammars;
-	config = toLuaFile ./nvim/plugin/treesitter.lua;
-      }
-      {
-      	plugin = nvim-cmp;
-	config = toLuaFile ./nvim/plugin/cmp.lua;
-      }
-      {
-	plugin = telescope-nvim;
-	config = toLuaFile ./nvim/plugin/telescope.lua;
-      }
-      {
-	plugin = nvim-autopairs;
-	config = toLuaFile ./nvim/plugin/autopairs.lua;
-      }
-      cmp-nvim-lsp
-      neodev-nvim
-      luasnip
-      telescope-fzf-native-nvim
-      comment-nvim
-      todo-comments-nvim
-      which-key-nvim
-      nvim-web-devicons
-      comfy-line-numbers-nvim
+    # telescope lsp which-key
+
+    # telescope setup
+    plenary-nvim
+    nvim-web-devicons
+    telescope-fzf-native-nvim
+    telescope-nvim
+
     ];
 
-    extraConfig = "${toLuaFile ./nvim/options.lua}${toLuaFile ./nvim/remaps.lua}";
+    extraConfig = "${toLuaFile ./nvim/options.lua}";
     extraPackages = with pkgs; [
      xclip
      wl-clipboard
@@ -80,7 +62,6 @@
     };
   };
 
-  programs.defaultBrowser = "librewolf";
   
   home.stateVersion = "25.05";
 
