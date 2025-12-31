@@ -100,6 +100,8 @@
     vscode
     wget
     alacritty
+	gnutar
+	curl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -111,6 +113,7 @@
   # };
 
   # List services that you want to enable:
+
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

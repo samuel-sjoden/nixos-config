@@ -34,7 +34,6 @@
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-    # lsp autopairs
 
     nvim-web-devicons
 
@@ -44,12 +43,22 @@
       plugin = telescope-nvim;
       config = toLuaFile ./nvim/plugin/telescope.lua;
     }
-	
     telescope-fzf-native-nvim
+
 	# which-key setup
 	which-key-nvim
 
 	# autopairs setup
+	{
+	  plugin = nvim-autopairs;
+	  config = toLuaFile ./nvim/plugin/autopairs.lua;
+	}
+	
+	# treesitter setup
+	(nvim-treesitter.withPlugins (p : [p.c p.python p.cmake p.cpp p.lua p.nix]))
+	# lsp setup
+
+	# autocomplete setup
 
     ];
 
@@ -68,6 +77,7 @@
 
     shellAliases = {
 	lw = "librewolf";
+	gs = "git status";
     };
   };
 
