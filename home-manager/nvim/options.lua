@@ -57,9 +57,12 @@ set("n", "<leader>E", vim.diagnostic.setloclist, { desc = 'open all errors and w
 
 -- Configure LSP clients
 
+  -- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Set default root markers for all clients
 vim.lsp.config('*', {
   root_markers = { '.git' },
+  capabilities = capabilities
 })
 
 -- Clangd lsp setup for c and cpp

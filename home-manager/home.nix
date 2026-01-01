@@ -56,9 +56,17 @@
 	
 	# treesitter setup
 	(nvim-treesitter.withPlugins (p : [p.c p.python p.cmake p.cpp p.lua p.nix]))
-	# lsp setup
 
 	# autocomplete setup
+	cmp-nvim-lsp
+	cmp-buffer
+	cmp-path
+	cmp-cmdline
+	{
+	  plugin = nvim-cmp;
+	  config = toLuaFile ./nvim/plugin/cmp.lua;
+	}
+	luasnip
 
     ];
 
