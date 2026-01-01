@@ -4,14 +4,6 @@
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
 
-  xfconf.settings = {
-    xfce4-keyboard-shortcuts = {
-      "commands/custom/<Super>a" = "alacritty";
-      "xfwm4/custom/<Super>Up" = "maximize_window_key"; 
-    };
-  };
-
-
   home.packages = with pkgs; [
     neofetch
     ripgrep
@@ -19,6 +11,7 @@
     tree
     btop
     librewolf
+	discord
     # Alternative to find
     fd
 	alacritty
@@ -67,6 +60,7 @@
 	  plugin = nvim-cmp;
 	  config = toLuaFile ./nvim/plugin/cmp.lua;
 	}
+
 	luasnip
 
     ];
@@ -92,6 +86,7 @@
 		};
 	};
   };
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -99,11 +94,10 @@
     shellAliases = {
 	lw = "librewolf";
 	gs = "git status";
+	vi = "nvim";
+	rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#hostname";
     };
   };
-
   
   home.stateVersion = "25.05";
-
-  programs.home-manager.enable = true;
 }

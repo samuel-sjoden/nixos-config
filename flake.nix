@@ -18,14 +18,13 @@
       specialArgs = {inherit inputs;};
 
       modules = [
-        ./hosts/configuration.nix
-	
-	home-manager.nixosModules.home-manager
-	{
-          home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.users.samuel = ./home-manager/home.nix;
-	}
+        ./hosts/cyborg
+		home-manager.nixosModules.home-manager
+		{
+      		home-manager.useGlobalPkgs = true;
+			home-manager.useUserPackages = true;
+			home-manager.users.samuel = ./home-manager/home.nix;
+		}
       ];
       };
     };
