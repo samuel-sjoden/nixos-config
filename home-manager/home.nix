@@ -21,6 +21,7 @@
     librewolf
     # Alternative to find
     fd
+	alacritty
   ];
 
   programs.neovim = 
@@ -82,6 +83,15 @@
     ];
   };
   
+  programs.alacritty = {
+  	enable = true;
+	theme = "hatsunemiku";
+	settings = {
+		window = {
+			decorations = "None";
+		};
+	};
+  };
   programs.bash = {
     enable = true;
     enableCompletion = true;
