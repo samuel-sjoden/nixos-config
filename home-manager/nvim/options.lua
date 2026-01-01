@@ -14,8 +14,9 @@ vim.o.shiftwidth = 4
 
 vim.o.updatetime = 300
 
-vim.o.termguicolors = true
-
+-- vim.o.termguicolors = true
+vim.o.background = "dark"
+vim.cmd.colorscheme "nord"
 vim.o.mouse = 'a'
 
 local set = vim.keymap.set

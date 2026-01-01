@@ -21,7 +21,6 @@
     librewolf
     # Alternative to find
     fd
-    clang-tools
   ];
 
   programs.neovim = 
@@ -34,8 +33,9 @@
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-
+	# visual
     nvim-web-devicons
+	nord-nvim
 
     # telescope setup
     plenary-nvim
@@ -78,6 +78,7 @@
 	 # External language servers
      pyright
 	 ltex-ls
+     clang-tools
     ];
   };
   
