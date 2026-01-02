@@ -17,8 +17,8 @@ in
     ./hardware-configuration.nix
     ./configuration.nix
     "${modules}/base.nix"
-    # "${modules}/i3.nix"
-	"${modules}/gnome.nix"
+    "${modules}/i3.nix"
+	# "${modules}/gnome.nix"
   ];
 
 
