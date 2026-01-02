@@ -10,6 +10,7 @@ services.xserver = {
 		dmenu
 		i3status
 		rofi
+		feh
 	];
   };
 };

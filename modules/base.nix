@@ -36,6 +36,8 @@
 	zip
 	unzip
 	tree
+	vlc
+	nomacs
   ];
 
   # Set your time zone.
