@@ -1,4 +1,12 @@
 {config, pkgs, ...}:
+let
+	rofiThemes = pkgs.fetchFromGitHub {
+		owner = "newmanls";
+		repo = "rofi-themes-collection";
+		rev = "master";
+		sha256 = "sha256-96wSyOp++1nXomnl8rbX5vMzaqRhTi/N7FUq6y0ukS8=";
+};
+in
 
 {
   home.username = "samuel";
@@ -97,6 +105,12 @@
 	vi = "nvim";
 	rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#hostname";
     };
+  };
+  
+  xdg.dataFile."rofi/themes".source = "${rofiThemes}/themes";
+  programs.rofi = {
+  	enable = true;
+	theme = "nord";
   };
   
   home.stateVersion = "25.05";
