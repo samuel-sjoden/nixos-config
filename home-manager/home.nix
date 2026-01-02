@@ -112,6 +112,12 @@ in
   	enable = true;
 	theme = "nord";
   };
+
+
+	xdg.configFile."i3/config" = {
+	  source = ./i3/config/i3-config;
+	  force = true;
+	};
   
   home.stateVersion = "25.05";
 }

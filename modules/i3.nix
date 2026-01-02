@@ -5,7 +5,7 @@ services.xserver = {
   enable = true;
   windowManager.i3 = {
   	enable = true;
-	configFile = ./i3/i3-config;
+	# configFile = ./i3/i3-config;
 	extraPackages = with pkgs; [
 		dmenu
 		i3status
