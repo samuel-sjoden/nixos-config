@@ -126,6 +126,8 @@ in
 	  source = ./i3/config/i3-config;
 	  force = true;
 	};
+
+	xdg.configFile."dunst/dunstrc".source = ./i3/dunst/dunstrc;
   
 
 programs.i3status = {
