@@ -1,26 +1,33 @@
 { config, pkgs, callPackage, ... }: 
 
 {
-services.xserver = {
-  enable = true;
-  windowManager.i3 = {
-  	enable = true;
-	# configFile = ./i3/i3-config;
-	extraPackages = with pkgs; [
-		dmenu
-		i3status
-		rofi
-		feh
-	];
-  };
-};
-services.displayManager.defaultSession = "none+i3";
-  services.pulseaudio.enable = true;
-  services.pipewire.enable = false;
-  nixpkgs.config.pulseaudio = true;
+	services.xserver = {
+	  enable = true;
+	  # Setup xfce for the desktop environment
+	  desktopManager.xfce = {
+		enable = true;
+		noDesktop = true;
+		enableXfwm = false;
+	  };
 
-  services.xserver.videoDrivers = [ "modesetting" ];
-  hardware.graphics.enable = true;
+	  displayManager.lightdm.enable = true;
+	  windowManager.i3 = {
+		enable = true;
+		# configFile = ./i3/i3-config;
+		extraPackages = with pkgs; [
+			dmenu
+			i3status
+			rofi
+			feh
+		];
+	  };
+	};
+	services.displayManager.defaultSession = "xfce+i3";
+	services.pulseaudio.enable = true;
+	services.pipewire.enable = false;
+	nixpkgs.config.pulseaudio = true;
 
+	services.xserver.videoDrivers = [ "modesetting" ];
+	hardware.graphics.enable = true;
 
 }
