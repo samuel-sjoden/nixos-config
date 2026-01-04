@@ -13,7 +13,7 @@ order += "battery 0"
 order += "time"
 
 load {
-	format = "<span background='#b08500'>    </span><span background='#bfbaac'>  %5min Load  </span>"
+	format = "<span background='#b08500'>  󰊚  </span><span background='#bfbaac'>  %5min Load  </span>"
 }
 
 cpu_temperature 0 {
