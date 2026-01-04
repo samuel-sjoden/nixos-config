@@ -85,7 +85,14 @@ vim.lsp.config('ltex', {
 	filetypes = {'markdown', 'tex', 'text', 'gitcommit'}
 })
 
+-- rnix for nix files
+vim.lsp.config('rnix', {
+	cmd = {"rnix-lsp"}
+	filetypes = {"nix"}
+})
+
 -- Enable lsp clients
 vim.lsp.enable('clangd')
 vim.lsp.enable('pyright')
 vim.lsp.enable('ltex')
+vim.lsp.enable('rnix')
