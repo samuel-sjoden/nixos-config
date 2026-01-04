@@ -90,6 +90,7 @@ in
      pyright
 	 ltex-ls
      clang-tools
+	 nil
     ];
   };
   
@@ -99,6 +100,15 @@ in
 	settings = {
 		window = {
 			decorations = "None";
+		};
+		font = {
+			normal.family = "DroidSansM Nerd Font Mono";
+			normal.style = "Regular";
+			bold.family = "DroidSansM Nerd Font Mono";
+			italic.family = "DroidSansM Nerd Font Mono";
+			bold_italic.family = "DroidSansM Nerd Font Mono";
+			bold_italic.style = "Thin";
+			size = 11.5;
 		};
 	};
   };
@@ -129,75 +139,5 @@ in
 
 	xdg.configFile."dunst/dunstrc".source = ./i3/dunst/dunstrc;
  	xdg.configFile."i3status/config".source = ./i3/i3status/config; 
-
-# programs.i3status = {
-#   enable = true;
-#   enableDefault = false;
-#
-#   general = {
-#     colors = true;
-#     interval = 1;
-#     color_good = "#bfbaac";
-#     color_degraded = "#d12f2c";
-#     color_bad = "#d12f2c";
-#   };
-#
-#   modules = {
-#     "load" = {
-#       position = 1;
-#       settings = {
-#         format = "  %5min";
-#       };
-#     };
-#
-#     # "cpu_temperature 0" = {
-#     #   position = 2;
-#     #   settings = {
-#     #     format = "  %degrees°C";
-#     #     path = "/sys/class/thermal/thermal_zone0/temp";
-#     #   };
-#     # };
-#
-#     "wireless wlp2s0" = {
-#       position = 3;
-#       settings = {
-#         format_up = "  %essid";
-#         format_down = "  Disconnected";
-#       };
-#     };
-#
-#     "volume master" = {
-#     position = 1;
-#     settings = {
-#       format = "♪ %volume";
-#       format_muted = "♪ muted (%volume)";
-#       device = "pulse:1";
-#     };
-# 	};
-#
-#     "battery 0" = {
-#       position = 5;
-#       settings = {
-#         last_full_capacity = true;
-#         format = "%status %percentage";
-#         format_down = "No Battery";
-#         status_chr = "";
-#         status_bat = "";
-#         status_unk = "";
-#         status_full = "";
-#         path = "/sys/class/power_supply/BAT%d/uevent";
-#         low_threshold = 10;
-#         integer_battery_capacity = true;
-#       };
-#     };
-#
-#     "time" = {
-#       position = 6;
-#       settings = {
-#         format = "  %b %d %H:%M";
-#       };
-#     };
-#   };
-# };
   home.stateVersion = "25.05";
 }

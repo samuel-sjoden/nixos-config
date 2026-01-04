@@ -67,32 +67,32 @@ vim.lsp.config('*', {
 })
 
 -- Clangd lsp setup for c and cpp
-vim.lsp.config('clangd', {
+vim.lsp.config('c', {
 	cmd = {'clangd'},
 	root_markers = {'.clangd', 'compile_commands.json', '.git'},
 	filetypes = {'c', 'cpp'},
 })
 
 -- pyright for python
-vim.lsp.config('pyright', {
+vim.lsp.config('python', {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = {'python', 'ipynb', 'cfg'}
 })
 
 -- ltex-ls for spelling and tex files
-vim.lsp.config('ltex', {
+vim.lsp.config('latex', {
 	cmd = {'ltex-ls'},
 	filetypes = {'markdown', 'tex', 'text', 'gitcommit'}
 })
 
--- rnix for nix files
-vim.lsp.config('rnix', {
-	cmd = {"rnix-lsp"}
+-- nil for nix files
+vim.lsp.config('nix', {
+	cmd = {"nil"},
 	filetypes = {"nix"}
 })
 
 -- Enable lsp clients
-vim.lsp.enable('clangd')
-vim.lsp.enable('pyright')
-vim.lsp.enable('ltex')
-vim.lsp.enable('rnix')
+vim.lsp.enable('c')
+vim.lsp.enable('python')
+vim.lsp.enable('latex')
+vim.lsp.enable('nix')
