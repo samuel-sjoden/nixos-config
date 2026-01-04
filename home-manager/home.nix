@@ -1,98 +1,23 @@
 {config, pkgs, ...}:
-let
-	rofiThemes = pkgs.fetchFromGitHub {
-		owner = "newmanls";
-		repo = "rofi-themes-collection";
-		rev = "master";
-		sha256 = "sha256-96wSyOp++1nXomnl8rbX5vMzaqRhTi/N7FUq6y0ukS8=";
-};
-in
 
 {
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
 
+  imports = [
+	./nvim/nvim.nix
+	./i3/i3.nix
+  ];
+
   home.packages = with pkgs; [
     neofetch
-    ripgrep
-    fzf
     tree
     btop
     librewolf
 	discord
-    # Alternative to find
-    fd
 	alacritty
-
-	# i3 packages
-	dmenu
-	i3status
-	rofi
-	feh
-	dunst
-	i3lock-color
   ];
 
-  programs.neovim = 
-  let 
-   toLua = str: "lua << EOF\n${str}\nEOF\n";
-   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
-    enable = true;
-    defaultEditor = true;
-
-    plugins = with pkgs.vimPlugins; [
-	# visual
-    nvim-web-devicons
-	nord-nvim
-
-    # telescope setup
-    plenary-nvim
-    {
-      plugin = telescope-nvim;
-      config = toLuaFile ./nvim/plugin/telescope.lua;
-    }
-    telescope-fzf-native-nvim
-
-	# which-key setup
-	which-key-nvim
-
-	# autopairs setup
-	{
-	  plugin = nvim-autopairs;
-	  config = toLuaFile ./nvim/plugin/autopairs.lua;
-	}
-	
-	# treesitter setup
-	(nvim-treesitter.withPlugins (p : [p.c p.python p.cmake p.cpp p.lua p.nix]))
-
-	# autocomplete setup
-	cmp-nvim-lsp
-	cmp-buffer
-	cmp-path
-	cmp-cmdline
-	{
-	  plugin = nvim-cmp;
-	  config = toLuaFile ./nvim/plugin/cmp.lua;
-	}
-
-	luasnip
-
-    ];
-
-    extraConfig = "${toLuaFile ./nvim/options.lua}";
-    extraPackages = with pkgs; [
-     xclip
-     wl-clipboard
-
-	 # External language servers
-     pyright
-	 ltex-ls
-     clang-tools
-	 nil
-    ];
-  };
   
   programs.alacritty = {
   	enable = true;
@@ -120,24 +45,12 @@ in
     shellAliases = {
 	lw = "librewolf";
 	gs = "git status";
+	ga = "git add *";
+	gc = "git commit -am";
 	vi = "nvim";
 	rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
     };
   };
   
-  xdg.dataFile."rofi/themes".source = "${rofiThemes}/themes";
-  programs.rofi = {
-  	enable = true;
-	theme = "nord";
-  };
-
-
-	xdg.configFile."i3/config" = {
-	  source = ./i3/config/i3-config;
-	  force = true;
-	};
-
-	xdg.configFile."dunst/dunstrc".source = ./i3/dunst/dunstrc;
- 	xdg.configFile."i3status/config".source = ./i3/i3status/config; 
   home.stateVersion = "25.05";
 }
