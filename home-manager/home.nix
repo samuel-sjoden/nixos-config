@@ -16,6 +16,8 @@
     librewolf
 	discord
 	alacritty
+	syncthing
+	obsidian
   ];
 
   
