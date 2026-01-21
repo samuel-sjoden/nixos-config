@@ -18,6 +18,8 @@
 	alacritty
 	syncthing
 	obsidian
+	kicad
+	ghostty
   ];
 
   
@@ -37,6 +39,19 @@
 			bold_italic.style = "Thin";
 			size = 11.5;
 		};
+	};
+  };
+
+  programs.ghostty = {
+  	enable = false;
+	enableBashIntegration = true;
+	settings = {
+	  theme = "catppuccin-mocha";
+	  font-size = 10;
+	  keybind = [
+		"ctrl+h=goto_split:left"
+		"ctrl+l=goto_split:right"
+	  ];
 	};
   };
 
