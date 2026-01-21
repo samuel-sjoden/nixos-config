@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, lib, ...}:
 
 {
   home.username = "samuel";
@@ -20,6 +20,7 @@
 	obsidian
 	kicad
 	ghostty
+	starship
   ];
 
   
@@ -43,15 +44,31 @@
   };
 
   programs.ghostty = {
-  	enable = false;
-	enableBashIntegration = true;
+  	enable = true;
+	installVimSyntax = true;
 	settings = {
-	  theme = "catppuccin-mocha";
-	  font-size = 10;
+	  theme = "Nord";
+	  font-family = "FiraCode Nerd Font Mono";
+	  font-style = "Regular";
+	  font-style-italic = "Thin";
+	  font-size = 11.5;
+	  cursor-style = "block";
+	  background-image = "~/.terminal_wallpaper.jpg";
+	  background-image-opacity = 0.1;
+	  background-image-fit = "cover";
+	  window-show-tab-bar = "never";
+	  window-decoration = "none";
 	  keybind = [
 		"ctrl+h=goto_split:left"
 		"ctrl+l=goto_split:right"
 	  ];
+	};
+  };
+
+  programs.starship = {
+  	enable = true;
+	settings = {
+	  add_newline = false;
 	};
   };
 
