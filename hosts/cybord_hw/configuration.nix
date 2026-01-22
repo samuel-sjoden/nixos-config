@@ -30,14 +30,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  #
-  # # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  #
-  # # Configure keymap in X11
+ # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -64,16 +57,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.samuel = {
-    isNormalUser = true;
-    description = "samuel sjoden";
-    extraGroups = [ "networkmanager" "wheel" "dialout"];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
 
   # Install firefox.
   programs.firefox.enable = true;

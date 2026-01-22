@@ -9,7 +9,7 @@
   users.users.samuel = {
     isNormalUser = true;
     description = "samuel sjoden";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [ ];
 	# TODO: Add a default shell for the user
   };
