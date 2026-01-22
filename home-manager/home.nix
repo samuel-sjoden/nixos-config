@@ -58,6 +58,8 @@
 	  background-image-fit = "cover";
 	  window-show-tab-bar = "never";
 	  window-decoration = "none";
+	  window-padding-x = "2";
+	  window-padding-y = "2";
 	  keybind = [
 		"ctrl+h=goto_split:left"
 		"ctrl+l=goto_split:right"
@@ -69,7 +71,29 @@
   	enable = true;
 	settings = {
 	  add_newline = false;
-	};
+	  format = "$username $directory$git_branch$git_status$character";
+	  character = {
+			success_symbol = "[:](green)";
+			error_symbol = "[:](red)";
+	   };
+		git_branch = {
+			format = "[$branch]($style)";
+		};
+		git_status = {
+			style = "bold cyan";
+		};
+		username = {
+			show_always = true;
+			style_user = "blue bold";
+			style_root = "red bold";
+			format = "[$user]($style)";
+		};
+		hostname = {
+			ssh_only = true;
+			style = "blue";
+			format = "[@$hostname]($style)";
+		};
+	  };
   };
 
   programs.bash = {
