@@ -25,7 +25,7 @@ exec --no-startup-id xfce4-settings-daemon
 # exec --no-startup-id feh --bg-scale ./wallpaper.png
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
-exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
+exec --no-startup-id feh --bg-scale ~/.wallpaper.png
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -214,25 +214,20 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-	background #141c21
-	statusline #141c21
-	separator #141c21
+		# Base backgrounds (Nord Polar Night)
+		background            #2E3440
+		statusline            #2E3440
+		separator             #3B4252
 
-	# colour of border, background, and text
-	focused_workspace #141c21 #d12f2c #93a1a1
-	active_workspace #141c21 #141c21 #93a1a1
-	inactive_workspace #141c21 #141c21 #93a1a1
-	urgent_workspace #141c21 #b08500 #93a1a1
+		# Workspace colors
+		# border      background  text
+		focused_workspace     #5E81AC #3B4252 #ECEFF4
+		active_workspace      #4C566A #2E3440 #D8DEE9
+		inactive_workspace    #3B4252 #2E3440 #AEB7C2
+		urgent_workspace      #B48EAD #434C5E #ECEFF4
 	}
 }
 
-# colour of border, background, text, indicator, and child_border
-client.focused #d12f2c #263640 #93a1a1 #696ebf #2587cc1
-client.focused_inactive #263640 #b08500 #93a1a1 #263640 #263640
-client.unfocused #263640 #b08500 #93a1a1 #263640 #263640
-client.urgent #263640 #b08500 #93a1a1 #263640 #263640
-client.placeholder #263640 #b08500 #93a1a1 #263640 #263640
-client.background #263640
 
 # window rules, you can find the window class using xprop
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] floating enable

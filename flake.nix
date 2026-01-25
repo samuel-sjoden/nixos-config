@@ -18,7 +18,7 @@
       specialArgs = {inherit inputs;};
 
       modules = [
-        ./hosts/cybord_hw
+        ./hosts/cyborg-laptop
 		home-manager.nixosModules.home-manager
 		{
       		home-manager.useGlobalPkgs = true;
