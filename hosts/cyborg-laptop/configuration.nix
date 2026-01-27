@@ -45,11 +45,12 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+  users.groups.plugdev = {};
   # Define a user account. 
   users.users.samuel = {
     isNormalUser = true;
     description = "samuel sjoden";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev"];
     # packages = with pkgs; [ ];
   };
 
@@ -77,6 +78,8 @@
 	vlc
 	nomacs
 	firefox
+	usbutils
+	evince
   ];
   # List services that you want to enable:
 
