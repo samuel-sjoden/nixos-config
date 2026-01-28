@@ -91,8 +91,16 @@ vim.lsp.config('nix', {
 	filetypes = {"nix"}
 })
 
+--vhdl-ls for vhdl projects
+vim.lsp.config('vhdl', {
+	cmd = {"vhdl-ls"},
+	filetypes = {'vhdl'}
+})
+
 -- Enable lsp clients
+vim.lsp.enable('*')
 vim.lsp.enable('c')
 vim.lsp.enable('python')
 vim.lsp.enable('latex')
 vim.lsp.enable('nix')
+vim.lsp.enable('vhdl')

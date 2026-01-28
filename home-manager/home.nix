@@ -21,6 +21,7 @@
 	kicad
 	ghostty
 	starship
+	quartus-prime-lite
   ];
 
   

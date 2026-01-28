@@ -10,7 +10,7 @@
 
   programs.neovim = 
   let 
-   toLua = str: "lua << EOF\n${str}\nEOF\n";
+   # toLua = str: "lua << EOF\n${str}\nEOF\n";
    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
   in
   {
@@ -40,7 +40,7 @@
 	}
 	
 	# treesitter setup
-	(nvim-treesitter.withPlugins (p : [p.c p.python p.cmake p.cpp p.lua p.nix]))
+	(nvim-treesitter.withPlugins (p : [p.c p.python p.cmake p.cpp p.lua p.nix p.vhdl]))
 
 	# autocomplete setup
 	cmp-nvim-lsp
@@ -66,6 +66,7 @@
 	 ltex-ls
      clang-tools
 	 nil
+	 vhdl-ls
     ];
   };
 
