@@ -49,6 +49,7 @@ set("n", "K", vim.lsp.buf.hover, { desc = 'Get information'})
 set("n", "gd", vim.lsp.buf.definition, { desc = 'Go to definition'})
 set("n", "gr", vim.lsp.buf.references, { desc = 'Go to references'})
 set("n", "<leader>rn", vim.lsp.buf.rename, { desc = 'rename all instances in buffer'})
+set("n", "F", vim.lsp.buf.format, {desc = 'format the current buffer'})
 
 set("n", "[d", vim.diagnostic.goto_prev, { desc = 'go to previous diagnostic'})
 set("n", "]d", vim.diagnostic.goto_next, { desc = 'go to next diagnostic'})
@@ -93,8 +94,8 @@ vim.lsp.config('nix', {
 
 --vhdl-ls for vhdl projects
 vim.lsp.config('vhdl', {
-	cmd = {"vhdl-ls"},
-	filetypes = {'vhdl'}
+	cmd = {"vhdl_ls"},
+	filetypes = {'vhdl', 'vhd'}
 })
 
 -- Enable lsp clients

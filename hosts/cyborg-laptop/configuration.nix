@@ -5,10 +5,10 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -25,7 +25,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
- # Configure keymap in X11
+  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -45,24 +45,32 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
-  users.groups.plugdev = {};
-  # Define a user account. 
+  users.groups.plugdev = { };
+  # Define a user account.
   users.users.samuel = {
     isNormalUser = true;
     description = "samuel sjoden";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+      "plugdev"
+    ];
     # packages = with pkgs; [ ];
   };
 
   # Fonts
   fonts.packages = with pkgs; [
-	  nerd-fonts.fira-code
-	  nerd-fonts.droid-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
   ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -70,16 +78,16 @@
     neovim
     vscode
     wget
-	curl
-	lshw
-	zip
-	unzip
-	tree
-	vlc
-	nomacs
-	firefox
-	usbutils
-	evince
+    curl
+    lshw
+    zip
+    unzip
+    tree
+    vlc
+    nomacs
+    firefox
+    usbutils
+    evince
   ];
   # List services that you want to enable:
 

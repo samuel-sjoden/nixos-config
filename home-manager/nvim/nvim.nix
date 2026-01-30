@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
 
   home.packages = with pkgs; [
@@ -8,66 +8,74 @@
     fd
   ];
 
-  programs.neovim = 
-  let 
-   # toLua = str: "lua << EOF\n${str}\nEOF\n";
-   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
-    enable = true;
-    defaultEditor = true;
-
-    plugins = with pkgs.vimPlugins; [
-	# visual
-    nvim-web-devicons
-	nord-nvim
-
-    # telescope setup
-    plenary-nvim
+  programs.neovim =
+    let
+      # toLua = str: "lua << EOF\n${str}\nEOF\n";
+      toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+    in
     {
-      plugin = telescope-nvim;
-      config = toLuaFile ./plugin/telescope.lua;
-    }
-    telescope-fzf-native-nvim
+      enable = true;
+      defaultEditor = true;
 
-	# which-key setup
-	which-key-nvim
+      plugins = with pkgs.vimPlugins; [
+        # visual
+        nvim-web-devicons
+        nord-nvim
 
-	# autopairs setup
-	{
-	  plugin = nvim-autopairs;
-	  config = toLuaFile ./plugin/autopairs.lua;
-	}
-	
-	# treesitter setup
-	(nvim-treesitter.withPlugins (p : [p.c p.python p.cmake p.cpp p.lua p.nix p.vhdl]))
+        # telescope setup
+        plenary-nvim
+        {
+          plugin = telescope-nvim;
+          config = toLuaFile ./plugin/telescope.lua;
+        }
+        telescope-fzf-native-nvim
 
-	# autocomplete setup
-	cmp-nvim-lsp
-	cmp-buffer
-	cmp-path
-	cmp-cmdline
-	{
-	  plugin = nvim-cmp;
-	  config = toLuaFile ./plugin/cmp.lua;
-	}
+        # which-key setup
+        which-key-nvim
 
-	luasnip
+        # autopairs setup
+        {
+          plugin = nvim-autopairs;
+          config = toLuaFile ./plugin/autopairs.lua;
+        }
 
-    ];
+        # treesitter setup
+        (nvim-treesitter.withPlugins (p: [
+          p.c
+          p.python
+          p.cmake
+          p.cpp
+          p.lua
+          p.nix
+          p.vhdl
+        ]))
 
-    extraConfig = "${toLuaFile ./options.lua}";
-    extraPackages = with pkgs; [
-     xclip
-     wl-clipboard
+        # autocomplete setup
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        cmp-cmdline
+        {
+          plugin = nvim-cmp;
+          config = toLuaFile ./plugin/cmp.lua;
+        }
 
-	 # External language servers
-     pyright
-	 ltex-ls
-     clang-tools
-	 nil
-	 vhdl-ls
-    ];
-  };
+        luasnip
+
+      ];
+
+      extraConfig = "${toLuaFile ./options.lua}";
+      extraPackages = with pkgs; [
+        xclip
+        wl-clipboard
+
+        # External language servers
+        pyright
+        ltex-ls
+        clang-tools
+        nil
+        vhdl-ls
+      ];
+    };
 
 }

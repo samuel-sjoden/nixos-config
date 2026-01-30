@@ -47,7 +47,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+q kill
@@ -211,15 +211,18 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-	background #141c21
-	statusline #141c21
-	separator #141c21
+		# Base backgrounds (Nord Polar Night)
+		background            #2E3440
+		statusline            #2E3440
+		separator             #3B4252
 
-	# colour of border, background, and text
-	focused_workspace #141c21 #d12f2c #93a1a1
-	active_workspace #141c21 #141c21 #93a1a1
-	inactive_workspace #141c21 #141c21 #93a1a1
-	urgent_workspace #141c21 #b08500 #93a1a1
+		# Workspace colors
+		# border      background  text
+		focused_workspace     #5E81AC #3B4252 #ECEFF4
+		active_workspace      #4C566A #2E3440 #D8DEE9
+		inactive_workspace    #3B4252 #2E3440 #AEB7C2
+		urgent_workspace      #B48EAD #434C5E #ECEFF4
+
 	}
 }
 
