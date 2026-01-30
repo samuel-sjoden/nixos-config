@@ -98,7 +98,7 @@ vim.lsp.config('vhdl', {
 })
 
 -- Enable lsp clients
-vim.lsp.enable('*')
+-- vim.lsp.enable('*')
 vim.lsp.enable('c')
 vim.lsp.enable('python')
 vim.lsp.enable('latex')
