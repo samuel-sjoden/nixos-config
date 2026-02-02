@@ -10,30 +10,28 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
-    {
-      # use "nixos", or your hostname as the name of the configuration
-      nixosConfigurations = {
-        hostname = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: {
+    # use "nixos", or your hostname as the name of the configuration
+    nixosConfigurations = {
+      hostname = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
 
-          modules = [
-            ./hosts/cyborg-laptop
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.samuel = ./home-manager/home.nix;
-            }
-          ];
-        };
+        modules = [
+          ./hosts/cyborg-laptop
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.samuel = ./home-manager/home.nix;
+          }
+        ];
       };
     };
+  };
 }

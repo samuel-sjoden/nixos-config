@@ -61,7 +61,12 @@
         }
 
         luasnip
+		{
+			plugin = conform-nvim;
+			config = toLuaFile ./plugin/conform.lua;
+		}
 
+		vim-clang-format
       ];
 
       extraConfig = "${toLuaFile ./options.lua}";
@@ -75,6 +80,12 @@
         clang-tools
         nil
         vhdl-ls
+
+		# formatters
+		alejandra
+		ghdl
+		stylua
+		black
       ];
     };
 
