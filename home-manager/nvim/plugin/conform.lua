@@ -11,11 +11,4 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
-
-	vim.keymap.set({ "n", "v" }, "<leader>F", function()
-		require("conform").format({
-			timeout_ms = 500,
-			lsp_fallback = true,
-		})
-	end, { desc = "Format" }),
 })

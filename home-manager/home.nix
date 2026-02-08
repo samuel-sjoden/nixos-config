@@ -1,12 +1,15 @@
-{config, pkgs, lib, ...}:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
 
   imports = [
-	./nvim/nvim.nix
-	./i3/i3.nix
+    ./nvim/nvim.nix
+    ./i3/i3.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,87 +17,87 @@
     tree
     btop
     librewolf
-	discord
-	alacritty
-	syncthing
-	obsidian
-	kicad
-	ghostty
-	starship
-	quartus-prime-lite
+    discord
+    alacritty
+    syncthing
+    obsidian
+    kicad
+    ghostty
+    starship
+    quartus-prime-lite
+    zoom-us
   ];
 
-  
   programs.alacritty = {
-  	enable = true;
-	theme = "hatsunemiku";
-	settings = {
-		window = {
-			decorations = "None";
-		};
-		font = {
-			normal.family = "DroidSansM Nerd Font Mono";
-			normal.style = "Regular";
-			bold.family = "DroidSansM Nerd Font Mono";
-			italic.family = "DroidSansM Nerd Font Mono";
-			bold_italic.family = "DroidSansM Nerd Font Mono";
-			bold_italic.style = "Thin";
-			size = 11.5;
-		};
-	};
+    enable = true;
+    theme = "hatsunemiku";
+    settings = {
+      window = {
+        decorations = "None";
+      };
+      font = {
+        normal.family = "DroidSansM Nerd Font Mono";
+        normal.style = "Regular";
+        bold.family = "DroidSansM Nerd Font Mono";
+        italic.family = "DroidSansM Nerd Font Mono";
+        bold_italic.family = "DroidSansM Nerd Font Mono";
+        bold_italic.style = "Thin";
+        size = 11.5;
+      };
+    };
   };
 
   programs.ghostty = {
-  	enable = true;
-	installVimSyntax = true;
-	settings = {
-	  theme = "Nord";
-	  font-family = "FiraCode Nerd Font Mono";
-	  font-style = "Regular";
-	  font-style-italic = "Thin";
-	  font-size = 11.5;
-	  cursor-style = "block";
-	  background-image = "~/.terminal_wallpaper.jpg";
-	  background-image-opacity = 0.1;
-	  background-image-fit = "cover";
-	  window-show-tab-bar = "never";
-	  window-decoration = "none";
-	  window-padding-x = "2";
-	  window-padding-y = "2";
-	  keybind = [
-		"ctrl+h=goto_split:left"
-		"ctrl+l=goto_split:right"
-	  ];
-	};
+    enable = true;
+    installVimSyntax = true;
+    settings = {
+      theme = "Nord";
+      font-family = "FiraCode Nerd Font Mono";
+      font-style = "Regular";
+      font-style-italic = "Thin";
+      font-size = 11.5;
+      cursor-style = "block";
+      background-image = "~/.terminal_wallpaper.jpg";
+      background-image-opacity = 0.1;
+      background-image-fit = "cover";
+      window-show-tab-bar = "never";
+      window-decoration = "none";
+      window-padding-x = "2";
+      window-padding-y = "2";
+      keybind = [
+        "ctrl+h=goto_split:left"
+        "ctrl+l=goto_split:right"
+      ];
+    };
   };
 
   programs.starship = {
-  	enable = true;
-	settings = {
-	  add_newline = false;
-	  format = "$username $directory$git_branch$git_status$character";
-	  character = {
-			success_symbol = "[:](green)";
-			error_symbol = "[:](red)";
-	   };
-		git_branch = {
-			format = "[$branch]($style)";
-		};
-		git_status = {
-			style = "bold cyan";
-		};
-		username = {
-			show_always = true;
-			style_user = "blue bold";
-			style_root = "red bold";
-			format = "[$user]($style)";
-		};
-		hostname = {
-			ssh_only = true;
-			style = "blue";
-			format = "[@$hostname]($style)";
-		};
-	  };
+    enable = true;
+    settings = {
+      add_newline = false;
+      format = "$username $directory$git_branch$git_status$character";
+      character = {
+        success_symbol = "[:](green)";
+        error_symbol = "[:](red)";
+      };
+      git_branch = {
+        format = "[$branch]($style)";
+      };
+      git_status = {
+        style = "bold cyan";
+      };
+      username = {
+        show_always = true;
+        style_user = "blue bold";
+        style_root = "red bold";
+        format = "[$user]($style)";
+      };
+      hostname = {
+        ssh_only = true;
+        style = "blue";
+        format = "[@$hostname]($style)";
+      };
+    };
   };
 
   programs.bash = {
@@ -102,14 +105,14 @@
     enableCompletion = true;
 
     shellAliases = {
-	lw = "librewolf";
-	gs = "git status";
-	ga = "git add *";
-	gc = "git commit -am";
-	vi = "nvim";
-	rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
+      lw = "librewolf";
+      gs = "git status";
+      ga = "git add *";
+      gc = "git commit -am";
+      vi = "nvim";
+      rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
     };
   };
-  
+
   home.stateVersion = "25.05";
 }

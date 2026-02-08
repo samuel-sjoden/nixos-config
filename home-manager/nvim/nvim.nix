@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     ripgrep
     fzf
@@ -8,85 +10,83 @@
     fd
   ];
 
-  programs.neovim =
-    let
-      # toLua = str: "lua << EOF\n${str}\nEOF\n";
-      toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    in
-    {
-      enable = true;
-      defaultEditor = true;
+  programs.neovim = let
+    # toLua = str: "lua << EOF\n${str}\nEOF\n";
+    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
+  in {
+    enable = true;
+    defaultEditor = true;
 
-      plugins = with pkgs.vimPlugins; [
-        # visual
-        nvim-web-devicons
-        nord-nvim
+    plugins = with pkgs.vimPlugins; [
+      # visual
+      nvim-web-devicons
+      nord-nvim
 
-        # telescope setup
-        plenary-nvim
-        {
-          plugin = telescope-nvim;
-          config = toLuaFile ./plugin/telescope.lua;
-        }
-        telescope-fzf-native-nvim
+      # telescope setup
+      plenary-nvim
+      {
+        plugin = telescope-nvim;
+        config = toLuaFile ./plugin/telescope.lua;
+      }
+      telescope-fzf-native-nvim
 
-        # which-key setup
-        which-key-nvim
+      # which-key setup
+      which-key-nvim
 
-        # autopairs setup
-        {
-          plugin = nvim-autopairs;
-          config = toLuaFile ./plugin/autopairs.lua;
-        }
+      # autopairs setup
+      {
+        plugin = nvim-autopairs;
+        config = toLuaFile ./plugin/autopairs.lua;
+      }
 
-        # treesitter setup
-        (nvim-treesitter.withPlugins (p: [
-          p.c
-          p.python
-          p.cmake
-          p.cpp
-          p.lua
-          p.nix
-          p.vhdl
-        ]))
+      # treesitter setup
+      (nvim-treesitter.withPlugins (p: [
+        p.c
+        p.python
+        p.cmake
+        p.cpp
+        p.lua
+        p.nix
+        p.vhdl
+      ]))
 
-        # autocomplete setup
-        cmp-nvim-lsp
-        cmp-buffer
-        cmp-path
-        cmp-cmdline
-        {
-          plugin = nvim-cmp;
-          config = toLuaFile ./plugin/cmp.lua;
-        }
+      # autocomplete setup
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
+      {
+        plugin = nvim-cmp;
+        config = toLuaFile ./plugin/cmp.lua;
+      }
 
-        luasnip
-		{
-			plugin = conform-nvim;
-			config = toLuaFile ./plugin/conform.lua;
-		}
+      luasnip
+      {
+        plugin = conform-nvim;
+        config = toLuaFile ./plugin/conform.lua;
+      }
 
-		vim-clang-format
-      ];
+      vim-clang-format
+    ];
 
-      extraConfig = "${toLuaFile ./options.lua}";
-      extraPackages = with pkgs; [
-        xclip
-        wl-clipboard
+    extraConfig = "${toLuaFile ./options.lua}";
+    extraPackages = with pkgs; [
+      xclip
+      wl-clipboard
 
-        # External language servers
-        pyright
-        ltex-ls
-        clang-tools
-        nil
-        vhdl-ls
+      # External language servers
+      pyright
+      ltex-ls
+      clang-tools
+      nil
+      vhdl-ls
+      lua-language-server
 
-		# formatters
-		alejandra
-		ghdl
-		stylua
-		black
-      ];
-    };
-
+      # formatters
+      alejandra
+      ghdl
+      stylua
+      black
+    ];
+  };
 }

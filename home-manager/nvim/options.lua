@@ -97,8 +97,15 @@ vim.lsp.config("nix", {
 
 --vhdl-ls for vhdl projects
 vim.lsp.config("vhdl", {
-	cmd = { "vhdl_ls" },
+	-- cmd = { "vhdl_ls" },
+	cmd = { "ghdl", "a", "fsynopsys", "$FILENAME" },
+	root_markers = { ".qsf" },
 	filetypes = { "vhdl", "vhd" },
+})
+
+vim.lsp.config("lua", {
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
 })
 
 -- Enable lsp clients
@@ -108,3 +115,4 @@ vim.lsp.enable("python")
 vim.lsp.enable("latex")
 vim.lsp.enable("nix")
 vim.lsp.enable("vhdl")
+vim.lsp.enable("lua")
