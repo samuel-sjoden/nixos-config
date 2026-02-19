@@ -87,6 +87,7 @@
     evince
     xclip
   ];
+  environment.pathsToLink = ["/share/bash-completion"];
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

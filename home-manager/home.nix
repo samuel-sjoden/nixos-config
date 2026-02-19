@@ -104,12 +104,15 @@
     enable = true;
     enableCompletion = true;
 
+    historyFileSize = 100000;
+    historyIgnore = ["ls" "cd" "exit" "poweroff" "nvim" "reboot"];
     shellAliases = {
-      lw = "librewolf";
       gs = "git status";
       ga = "git add *";
       gc = "git commit -am";
-      vi = "nvim";
+      n = "nvim";
+      ll = "ls -l";
+      ".." = "cd ..";
       rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
     };
   };
