@@ -97,9 +97,8 @@ vim.lsp.config("nix", {
 
 --vhdl-ls for vhdl projects
 vim.lsp.config("vhdl", {
-	-- cmd = { "vhdl_ls" },
-	cmd = { "ghdl", "a", "fsynopsys", "$FILENAME" },
-	root_markers = { ".qsf" },
+	cmd = { "vhdl_ls" },
+	root_markers = { ".qsf", "vhdl_ls.toml" },
 	filetypes = { "vhdl", "vhd" },
 })
 

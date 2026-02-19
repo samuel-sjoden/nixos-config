@@ -85,6 +85,7 @@
     firefox
     usbutils
     evince
+    xclip
   ];
   # List services that you want to enable:
 
@@ -93,7 +94,14 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="09fb", MODE="0666"
   '';
-
+  programs.ssh = {
+    extraConfig = ''
+      Host codeberg.org
+       HostName codeberg.org
+       User git
+       IdentityFile ~/.ssh/id_ed25519_codeberg
+    '';
+  };
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [22];
   # networking.firewall.allowedUDPPorts = [ ... ];

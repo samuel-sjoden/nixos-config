@@ -84,7 +84,6 @@
 
       # formatters
       alejandra
-      ghdl
       stylua
       black
     ];
