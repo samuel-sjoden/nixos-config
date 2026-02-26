@@ -86,6 +86,7 @@
     usbutils
     evince
     xclip
+    tio
   ];
   environment.pathsToLink = ["/share/bash-completion"];
   # List services that you want to enable:
@@ -105,6 +106,7 @@
   };
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [22];
+  hardware.bluetooth.enable = true;
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

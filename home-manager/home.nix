@@ -26,6 +26,7 @@
     starship
     quartus-prime-lite
     zoom-us
+    parsec-bin
   ];
 
   programs.alacritty = {
