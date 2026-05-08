@@ -4,7 +4,8 @@ require("conform").setup({
 		python = { "black" },
 		c = { "clang-format" },
 		nix = { "alejandra" },
-		vhdl = { "vsg" },
+		asm = { "asmfmt" },
+		rust = { "rstfmt" },
 	},
 
 	formatters = {

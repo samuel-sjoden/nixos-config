@@ -1,14 +1,15 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   rofiThemes = pkgs.fetchFromGitHub {
     owner = "newmanls";
     repo = "rofi-themes-collection";
     rev = "master";
     sha256 = "sha256-96wSyOp++1nXomnl8rbX5vMzaqRhTi/N7FUq6y0ukS8=";
   };
-in
-{
-
+in {
   home.packages = with pkgs; [
     # i3 packages
     dmenu
@@ -32,5 +33,4 @@ in
 
   xdg.configFile."dunst/dunstrc".source = ./dunst/dunstrc;
   xdg.configFile."i3status/config".source = ./i3status/config;
-
 }

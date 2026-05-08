@@ -192,7 +192,7 @@ client.background       #ffffff
 # --- Gaps ---
 # `inner` is like padding in CSS
 # gaps inner <gap_size>[px]
-gaps inner 8
+gaps inner 2
 
 # `outer` is like margin in CSS
 # gaps outer|horizontal|vertical|top|left|bottom|right <gap_size>[px]
@@ -228,7 +228,7 @@ bar {
 # window rules, you can find the window class using xprop
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] floating enable
 for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver] focus
-for_window [class=".*"] border pixel 8
+for_window [class=".*"] border pixel 2
 hide_edge_borders smart
-gaps inner 12
+gaps inner 4
 smart_gaps on

@@ -21,12 +21,20 @@
     alacritty
     syncthing
     obsidian
-    kicad
+    kicad-unstable
     ghostty
     starship
     quartus-prime-lite
     zoom-us
     parsec-bin
+    bluetui
+    sdcc
+    p7zip
+    wineWowPackages.unstable
+    pandoc
+    texliveFull
+    gimp
+    cargo
   ];
 
   programs.alacritty = {
@@ -115,6 +123,7 @@
       ll = "ls -l";
       ".." = "cd ..";
       rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
+      a51 = "wine ~/school/cpen-312/a51.exe";
     };
   };
 

@@ -107,6 +107,16 @@ vim.lsp.config("lua", {
 	filetypes = { "lua" },
 })
 
+vim.lsp.config("asm", {
+	cmd = { "asm-lsp" },
+	filetypes = { "asm", "s", "S" },
+})
+
+vim.lsp.config("rust", {
+	cmd = { "rust-analyzer" },
+	filetypes = { "rust", ".rs" },
+})
+
 -- Enable lsp clients
 -- vim.lsp.enable('*')
 vim.lsp.enable("c")
@@ -115,3 +125,5 @@ vim.lsp.enable("latex")
 vim.lsp.enable("nix")
 vim.lsp.enable("vhdl")
 vim.lsp.enable("lua")
+vim.lsp.enable("asm")
+vim.lsp.enable("rust")

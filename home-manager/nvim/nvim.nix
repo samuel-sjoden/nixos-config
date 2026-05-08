@@ -9,7 +9,6 @@
     # Alternative to find
     fd
   ];
-
   programs.neovim = let
     # toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
@@ -48,6 +47,7 @@
         p.lua
         p.nix
         p.vhdl
+        p.asm
       ]))
 
       # autocomplete setup
@@ -73,6 +73,7 @@
     extraPackages = with pkgs; [
       xclip
       wl-clipboard
+      tree-sitter
 
       # External language servers
       pyright
@@ -81,11 +82,13 @@
       nil
       vhdl-ls
       lua-language-server
+      asm-lsp
 
       # formatters
       alejandra
       stylua
       black
+      asmfmt
     ];
   };
 }
