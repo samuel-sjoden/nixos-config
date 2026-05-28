@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ripgrep
     fzf
@@ -19,7 +15,8 @@
     plugins = with pkgs.vimPlugins; [
       # visual
       nvim-web-devicons
-      nord-nvim
+      tender-vim
+      kanagawa-paper-nvim
 
       # telescope setup
       plenary-nvim
@@ -28,6 +25,14 @@
         config = toLuaFile ./plugin/telescope.lua;
       }
       telescope-fzf-native-nvim
+
+      # neo tree setup
+      nui-nvim
+      snacks-nvim # image viewing
+      {
+        plugin = neo-tree-nvim;
+        config = toLuaFile ./plugin/neo-tree.lua;
+      }
 
       # which-key setup
       which-key-nvim
@@ -64,6 +69,10 @@
       {
         plugin = conform-nvim;
         config = toLuaFile ./plugin/conform.lua;
+      }
+      {
+        plugin = indent-blankline-nvim;
+        config = toLuaFile ./plugin/indent-blankline.lua;
       }
 
       vim-clang-format
