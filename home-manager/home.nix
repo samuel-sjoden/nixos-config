@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   home.username = "samuel";
   home.homeDirectory = "/home/samuel";
 
@@ -125,6 +120,41 @@
       rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
       a51 = "wine ~/school/cpen-312/a51.exe";
     };
+  };
+
+  home.file.".gitmessage".text = ''
+    # Fill in what comes after: "This commit will..."
+    # Subject line (keep it under 50 chars) ###########
+
+
+    # Multi-line description goes here. ####################################
+  '';
+
+  programs.git = {
+    enable = true;
+    includes = [
+      {
+        contents = {
+          user = {
+            name = "Samuel Sjoden";
+            email = "sjodensamuel@gmail.com";
+          };
+          alias = {
+            st = "status";
+            co = "checkout";
+            cm = "commit -m";
+            ca = "commit --amend";
+            gl = "log -n10 --oneline";
+          };
+          core = {
+            editor = "nvim";
+          };
+          commit = {
+            template = "~/.gitmessage";
+          };
+        };
+      }
+    ];
   };
 
   home.stateVersion = "25.05";
