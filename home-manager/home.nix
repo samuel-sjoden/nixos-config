@@ -55,7 +55,7 @@
     enable = true;
     installVimSyntax = true;
     settings = {
-      theme = "Nord";
+      theme = "Zenbones Dark";
       font-family = "FiraCode Nerd Font Mono";
       font-style = "Regular";
       font-style-italic = "Thin";
@@ -81,8 +81,8 @@
       add_newline = false;
       format = "$username $directory$git_branch$git_status$character";
       character = {
-        success_symbol = "[:](green)";
-        error_symbol = "[:](red)";
+        success_symbol = "[:](bright-green)";
+        error_symbol = "[:](bright-red)";
       };
       git_branch = {
         format = "[$branch]($style)";
@@ -92,13 +92,13 @@
       };
       username = {
         show_always = true;
-        style_user = "blue bold";
-        style_root = "red bold";
+        style_user = "bold bright-cyan";
+        style_root = "bold red";
         format = "[$user]($style)";
       };
       hostname = {
         ssh_only = true;
-        style = "blue";
+        style = "bright-purple";
         format = "[@$hostname]($style)";
       };
     };
@@ -112,10 +112,10 @@
     historyIgnore = ["ls" "cd" "exit" "poweroff" "nvim" "reboot"];
     shellAliases = {
       gs = "git status";
-      ga = "git add *";
-      gc = "git commit -am";
       n = "nvim";
       ll = "ls -l";
+      la = "ls -la";
+      drone = "cd ~/projects/drone-project";
       ".." = "cd ..";
       rebuild = "sudo nixos-rebuild switch --flake /home/samuel/nixos-config#hostname";
       a51 = "wine ~/school/cpen-312/a51.exe";
@@ -155,6 +155,26 @@
         };
       }
     ];
+  };
+
+  programs.librewolf = {
+    enable = true;
+
+    # profiles.default = {
+    #   id = 0;
+    #   name = "default";
+    #   isDefault = true;
+    #   settings = {
+    #     # Force the UI and web content to prefer dark mode
+    #     "ui.systemUsesDarkTheme" = 1;
+    #     "layout.css.prefers-color-scheme.content-override" = 2; # 2 = Dark
+    #     "devtools.theme" = "dark";
+    #
+    #     # Keep your history/cookies if you don't want them wiped every time you close the browser
+    #     "privacy.clearOnShutdown.history" = false;
+    #     "privacy.clearOnShutdown.cookies" = false;
+    #   };
+    # };
   };
 
   home.stateVersion = "25.05";

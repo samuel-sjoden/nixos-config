@@ -21,8 +21,8 @@ font pango:fira-code 9
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xfce4-settings-daemon
-# exec --no-startup-id feh --bg-scale ./wallpaper.png
+# exec --no-startup-id xfce4-settings-daemon
+#
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
@@ -36,8 +36,9 @@ exec --no-startup-id nm-applet
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
-# bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-exec_always --no-startup-id xset r rate 200 60
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+exec --no-startup-id xset r rate 200 60
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -203,16 +204,16 @@ smart_gaps inverse_outer
 # finds out, if available)
 # panel
 bar {
-	status_command i3status
-	position top
+	status_command i3status 
+	position bottom
 	workspace_min_width 24
-	padding 2px 8px 2px 8px
+	padding 4px 4px 4px 4px
 	strip_workspace_numbers yes
 
 	colors {
 		# Base backgrounds (Nord Polar Night)
 		background            #2E3440
-		statusline            #2E3440
+		statusline            #ECEFF4
 		separator             #3B4252
 
 		# Workspace colors

@@ -12,8 +12,6 @@
 in {
   home.packages = with pkgs; [
     # i3 packages
-    dmenu
-    i3status
     rofi
     feh
     dunst
@@ -32,5 +30,5 @@ in {
   };
 
   xdg.configFile."dunst/dunstrc".source = ./dunst/dunstrc;
-  xdg.configFile."i3status/config".source = ./i3status/config;
+  xdg.configFile."i3status/config".source = ./i3status/config.yml;
 }
