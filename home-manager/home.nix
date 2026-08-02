@@ -23,6 +23,7 @@
     parsec-bin
     bluetui
     gimp
+    gcc
     lynx
   ];
 
