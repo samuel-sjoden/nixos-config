@@ -13,7 +13,6 @@
     btop
     librewolf
     discord
-    alacritty
     syncthing
     obsidian
     kicad-unstable
@@ -23,33 +22,9 @@
     zoom-us
     parsec-bin
     bluetui
-    sdcc
-    p7zip
-    wineWowPackages.unstable
-    pandoc
-    texliveFull
     gimp
-    cargo
+    lynx
   ];
-
-  programs.alacritty = {
-    enable = true;
-    theme = "hatsunemiku";
-    settings = {
-      window = {
-        decorations = "None";
-      };
-      font = {
-        normal.family = "DroidSansM Nerd Font Mono";
-        normal.style = "Regular";
-        bold.family = "DroidSansM Nerd Font Mono";
-        italic.family = "DroidSansM Nerd Font Mono";
-        bold_italic.family = "DroidSansM Nerd Font Mono";
-        bold_italic.style = "Thin";
-        size = 11.5;
-      };
-    };
-  };
 
   programs.ghostty = {
     enable = true;
@@ -155,26 +130,6 @@
         };
       }
     ];
-  };
-
-  programs.librewolf = {
-    enable = true;
-
-    # profiles.default = {
-    #   id = 0;
-    #   name = "default";
-    #   isDefault = true;
-    #   settings = {
-    #     # Force the UI and web content to prefer dark mode
-    #     "ui.systemUsesDarkTheme" = 1;
-    #     "layout.css.prefers-color-scheme.content-override" = 2; # 2 = Dark
-    #     "devtools.theme" = "dark";
-    #
-    #     # Keep your history/cookies if you don't want them wiped every time you close the browser
-    #     "privacy.clearOnShutdown.history" = false;
-    #     "privacy.clearOnShutdown.cookies" = false;
-    #   };
-    # };
   };
 
   home.stateVersion = "25.05";
